@@ -1,0 +1,25 @@
+Headers of a "New lead" notification that landed in Carmen's Gmail spam folder.
+(Copied from Gmail > Show original. Message body removed.)
+------------------------------------------------------------------------------
+
+Delivered-To: carmen.brisaroof@gmail.com
+Received: by 2002:a05:7022:4b1:b0:91:6c2e:1f04 with SMTP id j17csp2210381dlb;
+        Sat, 10 Oct 2026 09:33:43 -0700 (PDT)
+Return-Path: <leads@brisaroofing.com>
+Received: from out-07.smtp.hostinger.com (out-07.smtp.hostinger.com. [203.0.113.25])
+        by mx.google.com with ESMTPS id 6a1803df08f44-7c1e2b0f3d1si118204026d6.112.2026.10.10.09.33.42
+        for <carmen.brisaroof@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 10 Oct 2026 09:33:43 -0700 (PDT)
+Received-SPF: permerror (google.com: permanent error in processing during lookup of leads@brisaroofing.com) client-ip=203.0.113.25;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@brisaroofing.com header.s=hostingermail-a header.b=Qm3vX9tL;
+       spf=permerror (google.com: permanent error in processing during lookup of leads@brisaroofing.com) smtp.mailfrom=leads@brisaroofing.com
+From: Brisa Roofing Leads <leads@brisaroofing.com>
+To: carmen.brisaroof@gmail.com
+Subject: New lead: Tom Becker
+Date: Sat, 10 Oct 2026 16:33:41 +0000
+Message-ID: <6f2a91c4-0b7e-4d2a-9a51-3c8e0d71b2aa@brisaroofing.com>
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+X-Mailer: Make

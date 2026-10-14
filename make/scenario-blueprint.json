@@ -1,0 +1,91 @@
+{
+  "name": "Brisa Roofing - New website lead",
+  "flow": [
+    {
+      "id": 1,
+      "module": "gateway:CustomWebHook",
+      "version": 1,
+      "parameters": {
+        "hook": 1873402,
+        "maxResults": 1
+      },
+      "mapper": {},
+      "metadata": {
+        "designer": { "x": 0, "y": 0 },
+        "restore": {
+          "parameters": {
+            "hook": { "label": "Brisa website leads (API key required)" }
+          }
+        }
+      }
+    },
+    {
+      "id": 2,
+      "module": "google-sheets:addRow",
+      "version": 2,
+      "parameters": {
+        "__IMTCONN__": 2984411
+      },
+      "mapper": {
+        "mode": "select",
+        "spreadsheetId": "/Brisa Roofing/Website Leads",
+        "sheetId": "Leads",
+        "includesHeaders": true,
+        "insertDataOption": "INSERT_ROWS",
+        "valueInputOption": "USER_ENTERED",
+        "values": {
+          "0": "{{formatDate(now; \"YYYY-MM-DD HH:mm:ss\"; \"UTC\")}}",
+          "1": "{{1.name}}",
+          "2": "{{1.email}}",
+          "3": "{{1.phone}}",
+          "4": "{{1.zip}}",
+          "5": "{{1.message}}"
+        }
+      },
+      "metadata": {
+        "designer": { "x": 300, "y": 0 },
+        "restore": {
+          "parameters": {
+            "__IMTCONN__": { "label": "carmen.brisaroof@gmail.com (Google)" }
+          }
+        }
+      }
+    },
+    {
+      "id": 3,
+      "module": "email:ActionSendEmail",
+      "version": 7,
+      "parameters": {
+        "account": 3120577
+      },
+      "mapper": {
+        "from": "Brisa Roofing Leads <leads@brisaroofing.com>",
+        "to": ["carmen.brisaroof@gmail.com"],
+        "subject": "New lead: {{1.name}}",
+        "contentType": "html",
+        "html": "<p><b>{{1.name}}</b> wants a free inspection.</p><p>Phone: {{1.phone}}<br>Email: {{1.email}}<br>Zip: {{1.zip}}</p><p>{{1.message}}</p>"
+      },
+      "metadata": {
+        "designer": { "x": 600, "y": 0 },
+        "restore": {
+          "parameters": {
+            "account": { "label": "leads@brisaroofing.com (SMTP smtp.hostinger.com)" }
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "version": 1,
+    "scenario": {
+      "roundtrips": 1,
+      "maxErrors": 3,
+      "autoCommit": true,
+      "sequential": false,
+      "confidential": false,
+      "dataloss": false,
+      "dlq": false
+    },
+    "designer": { "orphans": [] }
+  }
+}
